@@ -1,11 +1,54 @@
-<header>
-    <!-- Clicking the logo takes them back to the homepage -->
-    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">🌱 website<span>.com</span></a>
-    <nav>
-        <!-- These links now jump directly to your other pages! -->
-        <a href="projects.html">Projects</a>
-        <a href="garden.html">Garden</a>
-        <a href="doodles.html">Doodles</a>
-        <a href="mailto:your-email@example.com">Contact</a>
-    </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doodles - Adamaris</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --frame-thickness: 20px;
+            --frame-color: rgba(112, 196, 143, 0.559);
+            --bg-color: #ffffff;
+            --accent-green: #78b58e;
+            --text-muted: #000000;
+        }
+        html::after { content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; box-sizing: border-box; border: var(--frame-thickness) solid var(--frame-color); pointer-events: none; z-index: 9999; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-color); color: #000000; font-family: 'Quicksand', sans-serif; font-size: 1.05rem; line-height: 1.7; margin: 0; max-width: 100%;
+            padding: calc(var(--frame-thickness) + 2rem) calc(var(--frame-thickness) + 3rem);
+        }
+        h1, h2, h3, .logo { font-weight: 700; letter-spacing: 0.5px; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; padding-bottom: 1rem; border-bottom: 1px solid var(--accent-green); }
+        .logo { font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent-green); }
+        nav a { color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--accent-green); }
+        
+        .doodle-canvas { border: 2px dashed var(--accent-green); padding: 5rem 2rem; text-align: center; border-radius: 16px; margin-top: 2rem; font-family: 'Times New Roman', Times, serif; font-size: 1.2rem; }
+        footer { margin-top: 8rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--accent-green); padding-top: 2rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="main.html" class="logo" style="text-decoration: none; color: inherit;">🌱 website<span>.com</span></a>
+        <nav>
+            <a href="projects.html">Projects</a>
+            <a href="garden.html">Garden</a>
+            <a href="doodles.html" class="active">Doodles</a>
+            <a href="mailto:adamarisrodriguez465@gmail.com">Email</a>
+            <a href="http://github.com/adamax-bones" target="_blank">Github</a>
+        </nav>
+    </header>
+    <main>
+        <h2>🎨 Doodles & Sketches</h2>
+        <div class="doodle-canvas">
+            Open for now! Must add drawings for projects
+        </div>
+    </main>
+    <footer><p>© 2026 • Cultivated with love using VS Code</p></footer>
+</body>
+</html>
