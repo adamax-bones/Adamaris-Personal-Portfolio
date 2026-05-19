@@ -8,7 +8,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
         
+    
     <style>
+        :root {
+            /* ... your other variables ... */
+            
+            /* Edit these two lines to change your border look easily! */
+            --frame-thickness: 20px;
+            --frame-color: rgba(112, 196, 143, 0.559); /* A clean slate gray, or use var(--accent-green) for neon green */
+        }
+
+        /* Creates the fixed framing effect around the whole viewport */
+        html::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+            
+            /* Uses the variables above to set the border width and style */
+            border: var(--frame-thickness) solid var(--frame-color);
+            
+            /* This line makes sure you can still click on links near the screen edges */
+            pointer-events: none; 
+            z-index: 9999;
+        }
+
         :root {
             --bg-color: #ffffff;
             --card-bg: #689280;
@@ -29,10 +56,12 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: 'Quicksand', cursive, sans-serif;
-            line-height: 1.6;
-            padding: 2rem 1rem;
-            max-width: 900px;
-            margin: 0 auto;
+            font-size: 1.05rem; 
+            line-height: 1.7;
+            margin: 0;
+            max-width: 100%;
+            
+            padding: calc(var(--frame-thickness) + 2rem) calc(var(--frame-thickness) + 3rem);
         }
 
         h1, h2, h3, .logo {
@@ -155,9 +184,9 @@
         }
 
         /* States */
-        .seed { background: rgba(234, 179, 8, 0.1); color: #eab308; }      /* Idea */
-        .growing { background: rgba(211, 232, 17, 0.1); color: #e8fb3d; }   /* In Progress */
-        .evergreen { background: rgba(74, 222, 128, 0.1); color: #4ade80; } /* Finished */
+        .seed { background: rgba(234, 179, 8, 0.1); color: #eab308; }      /* Idea 🌱 */
+        .growing { background: rgba(211, 232, 17, 0.1); color: #e8fb3d; }   /* In Progress 🪴*/
+        .grown { background: rgba(74, 222, 128, 0.1); color: #4ade80; } /* Finished 🌳*/
 
         .card h3 {
             font-size: 1.3rem;
@@ -224,7 +253,7 @@
 <body>
 
     <header>
-        <div class="logo">🌱 garden<span>.io</span></div>
+        <div class="logo">🌱 website<span>.com</span></div>
         <nav>
             <a href="#projects">Projects</a>
             <a href="#garden">Garden</a>
@@ -235,7 +264,7 @@
 
     <main>
         <section class="hero">
-            <h1>Hello, I'm Adamaris and this is my <span>Digital Garden</span>.</h1>
+            <h1>Hi there, I'm Adamaris 🐞 and this is my <br><span>Digital Garden</span>.</h1>
             <p>Welcome to my personal corner of the internet. Here I show my projects alongside my love for art, bugs, and other things.</p>
         </section>
 
@@ -244,13 +273,13 @@
             <div class="grid">
                 
                 <a href="#" class="card">
-                    <div class="status-tag growing">● Growing</div>
+                    <div class="status-tag growing">🪴 Growing</div>
                     <h3>Crawly Collection</h3>
                     <p>An experimental website of hand-drawn insects where users can go to learn all about bugs.</p>
                 </a>
 
                 <a href="#" class="card">
-                    <div class="status-tag growing">● Growing</div>
+                    <div class="status-tag growing">🪴 Growing</div>
                     <h3>TinyFootprint</h3>
                     <p>A carbon footprint waste tracking app that helps users visualize their environmental impact.</p>
                 </a>
@@ -290,7 +319,7 @@
     </footer>
 
     <script>
-        const plants = ['🌱', '🌿', '☘️', '🍀', '🌻', '🌸', '🌲'];
+        const plants = ['🌱', '🌿', '☘️', '🍀', '🌻', '🌸', '🌲', '🌵'];
         function plantSeed() {
             const bed = document.getElementById('garden-bed');
             if(bed.children.length >= 15) {
@@ -301,7 +330,7 @@
             newPlant.innerText = '🌱';
             bed.appendChild(newPlant);
 
-            // Simulate growth after 1 second
+            // Grow the plant after a short delay to simulate growth
             setTimeout(() => {
                 const randomPlant = plants[Math.floor(Math.random() * plants.length)];
                 newPlant.innerText = randomPlant;
