@@ -65,7 +65,7 @@
             <a href="projects.html">Projects</a>
             <a href="garden.html">Garden</a>
             <a href="doodles.html">Doodles</a>
-            <a href="mailto:adamarisrodriguez465@gmail.com">Email</a>
+            <a href="#" id="contact-menu-trigger" onclick="toggleContactPanel(event)">Contact</a>
             <a href="http://github.com/adamax-bones" target="_blank">Github</a>
         </nav>
     </header>
@@ -102,5 +102,130 @@
             }, 1000);
         }
     </script>
+    <!-- Slide out panel -->
+    <div id="contact-slide-panel" class="slide-panel">
+        <button class="close-btn" onclick="toggleContactPanel(event)">×</button>
+        
+        <h2>Say Hi!</h2>
+        <p class="panel-subtitle">Some Contact Info!</p>
+        
+        <div class="contact-links">
+            <div class="contact-item">
+                <span>School Email</span>
+                <span>adamaris.rodriguez@vanderbilt.edu</span>
+            </div>
+            
+            <div class="contact-item">
+                <span>Personal Email</span>
+                <span>adamarisrodriguez465@gmail.com</span>
+            </div>
+            
+            <div class="contact-item">
+                <span>Network</span>
+                <a href="https://www.linkedin.com/in/adamaris-rodriguez-468179289/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay blur effect -->
+    <div id="panel-overlay" class="panel-overlay" onclick="toggleContactPanel(event)"></div>
+
+    <style>
+        .side-panel {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 320px;
+            height: 100vh;
+            background-color: #ffffff;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08);
+            z-index: 10000; 
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            border-left: 4px solid rgba(112, 196, 143, 0.559);
+        }
+
+        .side-panel.open {
+            right: 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #689280;
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1;
+        }
+
+        .side-panel h2 {
+            font-size: 1.6rem;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .panel-subtitle {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1rem;
+            color: #555555;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #78b58e;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item a {
+            font-family: 'Quicksand', sans-serif;
+            color: #000000;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.2s;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            color: #689280;
+            text-decoration: underline;
+        }
+
+        /* Darkens background when panel opens */
+        .panel-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transition: opacity 0.3s ease;
+        }
+
+        .panel-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
 </body>
 </html>
