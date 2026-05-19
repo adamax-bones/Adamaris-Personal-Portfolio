@@ -1,18 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<header>
-    <!-- Clicking the logo takes them back to the homepage -->
-    <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">🌱 website<span>.com</span></a>
-    <nav>
-        <!-- These links now jump directly to your other pages! -->
-        <a href="projects.html">Projects</a>
-        <a href="garden.html">Garden</a>
-        <a href="doodles.html">Doodles</a>
-        <a href="mailto:your-email@example.com">Contact</a>
-    </nav>
-</header>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,36 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-        
-    
     <style>
         :root {
-            /* ... your other variables ... */
-            
-            /* Edit these two lines to change your border look easily! */
             --frame-thickness: 20px;
-            --frame-color: rgba(112, 196, 143, 0.559); /* A clean slate gray, or use var(--accent-green) for neon green */
-        }
-
-        /* Creates the fixed framing effect around the whole viewport */
-        html::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            box-sizing: border-box;
-            
-            /* Uses the variables above to set the border width and style */
-            border: var(--frame-thickness) solid var(--frame-color);
-            
-            /* This line makes sure you can still click on links near the screen edges */
-            pointer-events: none; 
-            z-index: 9999;
-        }
-
-        :root {
+            --frame-color: rgba(112, 196, 143, 0.559);
             --bg-color: #ffffff;
             --card-bg: #689280;
             --text-main: #000000;
@@ -59,217 +20,51 @@
             --radius: 16px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        html::after {
+            content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; box-sizing: border-box;
+            border: var(--frame-thickness) solid var(--frame-color); pointer-events: none; z-index: 9999;
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Quicksand', cursive, sans-serif;
-            font-size: 1.05rem; 
-            line-height: 1.7;
-            margin: 0;
-            max-width: 100%;
-            
+            background-color: var(--bg-color); color: var(--text-main);
+            font-family: 'Quicksand', cursive, sans-serif; font-size: 1.05rem; line-height: 1.7; margin: 0; max-width: 100%;
             padding: calc(var(--frame-thickness) + 2rem) calc(var(--frame-thickness) + 3rem);
         }
 
-        h1, h2, h3, .logo {
-            font-family: 'Quicksand', cursive, sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
+        h1, h2, h3, .logo { font-family: 'Quicksand', cursive, sans-serif; font-weight: 700; letter-spacing: 0.5px; }
 
-        /* Header Navigation */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 4rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; padding-bottom: 1rem; border-bottom: 1px solid var(--accent-green); }
+        .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent-green); }
+        nav a { color: var(--text-muted); text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; transition: color 0.2s ease; font-weight: 500; }
+        nav a:hover, nav a.active { color: var(--accent-green); }
 
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .hero { margin-bottom: 5rem; }
+        .hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; }
+        .hero h1 span { color: var(--accent-green); background: linear-gradient(to right, var(--accent-green), var(--accent-sprout)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; font-family: 'Times New Roman', Times, serif; }
 
-        .logo span {
-            color: var(--accent-green);
-        }
+        .garden-interact { background: linear-gradient(135deg, #68995b 0%, #94c3e9 100%); border: 1px dashed var(--accent-green); border-radius: var(--radius); padding: 2.5rem; text-align: center; margin-top: 2rem; color: #ffffff; }
+        .garden-interact h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .garden-interact p { font-family: 'Times New Roman', Times, serif; font-size: 1.1rem; opacity: 0.9; }
+        .garden-interact button { background-color: var(--accent-sprout); color: #ffffff; border: none; padding: 0.8rem 1.5rem; font-family: 'Quicksand', sans-serif; font-weight: 700; border-radius: 8px; cursor: pointer; margin-top: 1rem; transition: transform 0.2s; }
+        .garden-interact button:hover { transform: scale(1.05); }
+        #garden-bed { display: flex; justify-content: center; gap: 10px; margin-top: 1.5rem; font-size: 1.5rem; min-height: 40px; }
 
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-green);
-        }
-
-        /* About Section */
-        .hero {
-            margin-bottom: 5rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .hero h1 span {
-            color: var(--accent-green);
-            background: linear-gradient(to right, var(--accent-green), var(--accent-sprout));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            font-weight: 300;
-        }
-
-        /* Section Layouts */
-        section {
-            margin-bottom: 5rem;
-        }
-
-        section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-green);
-        }
-
-        /* Status Tags */
-        .status-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        /* States */
-        .seed { background: rgba(234, 179, 8, 0.1); color: #eab308; }      /* Idea 🌱 */
-        .growing { background: rgba(211, 232, 17, 0.1); color: #e8fb3d; }   /* In Progress 🪴*/
-        .grown { background: rgba(74, 222, 128, 0.1); color: #4ade80; } /* Finished 🌳*/
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Interactive Box */
-        .garden-interact {
-            background: linear-gradient(135deg, #68995b 0%, #94c3e9 100%);
-            border: 1px dashed var(--border-color);
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .garden-interact button {
-            background-color: var(--accent-sprout);
-            color: var(--text-main);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: opacity 0.2s;
-        }
-
-        .garden-interact button:hover {
-            opacity: 0.9;
-        }
-
-        #garden-bed {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1.5rem;
-            font-size: 1.5rem;
-            min-height: 40px;
-        }
-
-        footer {
-            margin-top: 8rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 2rem;
-        }
-
-        /* Responsive fixes */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; }
-            body { padding: 1rem; }
-        }
+        footer { margin-top: 8rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--accent-green); padding-top: 2rem; font-family: 'Quicksand', sans-serif; }
+        @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; } body { padding: 1rem; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">🌱 website<span>.com</span></div>
+        <a href="main.html" class="logo" style="text-decoration: none; color: inherit;">🌱 website<span>.com</span></a>
         <nav>
-            <a href="#projects">Projects</a>
-            <a href="#garden">Garden</a>
+            <a href="projects.html">Projects</a>
+            <a href="garden.html">Garden</a>
+            <a href="doodles.html">Doodles</a>
             <a href="mailto:adamarisrodriguez465@gmail.com">Email</a>
             <a href="http://github.com/adamax-bones" target="_blank">Github</a>
         </nav>
@@ -281,50 +76,12 @@
             <p>Welcome to my personal corner of the internet. Here I show my projects alongside my love for art, bugs, and other things.</p>
         </section>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="grid">
-                
-                <a href="#" class="card">
-                    <div class="status-tag growing">🪴 Growing</div>
-                    <h3>Crawly Collection</h3>
-                    <p>An experimental website of hand-drawn insects where users can go to learn all about bugs.</p>
-                </a>
-
-                <a href="#" class="card">
-                    <div class="status-tag growing">🪴 Growing</div>
-                    <h3>TinyFootprint</h3>
-                    <p>A carbon footprint waste tracking app that helps users visualize their environmental impact.</p>
-                </a>
-
-            </div>
-        </section>
-
-        <section id="garden">
-            <h2>🌿 The Digital Garden</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Unlike a traditional blog, a digital garden is a collection of evolving thoughts and unfinished ideas.</p>
-            
-            <div class="grid">
-                <div class="card">
-                    <div class="status-tag seed">🌱 Seedling</div>
-                    <h3>Weather App</h3>
-                    <p>A simple weather application that can be displayed as a widget. Features include</p>
-                </div>
-
-                <div class="card">
-                    <div class="status-tag none"></div>
-                    <h3>NA</h3>
-                    <p></p>
-                </div>
-            </div>
-
-            <div class="garden-interact">
-                <h3>Interact with the Garden</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Drop a seed into my digital garden bed to watch a plant grow instantly!</p>
-                <button onclick="plantSeed()">Plant a Seed</button>
-                <div id="garden-bed"></div>
-            </div>
-        </section>
+        <div class="garden-interact">
+            <h3>Interact with the Garden</h3>
+            <p>Drop a seed into my digital garden bed to watch a plant grow instantly!</p>
+            <button onclick="plantSeed()">Plant a Seed</button>
+            <div id="garden-bed"></div>
+        </div>
     </main>
 
     <footer>
@@ -335,15 +92,10 @@
         const plants = ['🌱', '🌿', '☘️', '🍀', '🌻', '🌸', '🌲', '🌵'];
         function plantSeed() {
             const bed = document.getElementById('garden-bed');
-            if(bed.children.length >= 15) {
-                bed.innerHTML = ''; //Reset if there are too many
-            }
-            
+            if(bed.children.length >= 15) { bed.innerHTML = ''; }
             const newPlant = document.createElement('span');
             newPlant.innerText = '🌱';
             bed.appendChild(newPlant);
-
-            // Grow the plant after a short delay to simulate growth
             setTimeout(() => {
                 const randomPlant = plants[Math.floor(Math.random() * plants.length)];
                 newPlant.innerText = randomPlant;
