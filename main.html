@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adamaris' Personal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --card-bg: #689280;
+            --text-main: #000000;
+            --text-muted: #000000;
+            --accent-green: #78b58e;
+            --accent-sprout: #8da763;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Quicksand', cursive, sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Quicksand', cursive, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-green);
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* About Section */
+        .hero {
+            margin-bottom: 5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-green);
+            background: linear-gradient(to right, var(--accent-green), var(--accent-sprout));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* Section Layouts */
+        section {
+            margin-bottom: 5rem;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-green);
+        }
+
+        /* Status Tags */
+        .status-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* States */
+        .seed { background: rgba(234, 179, 8, 0.1); color: #eab308; }      /* Idea */
+        .growing { background: rgba(211, 232, 17, 0.1); color: #e8fb3d; }   /* In Progress */
+        .evergreen { background: rgba(74, 222, 128, 0.1); color: #4ade80; } /* Finished */
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Interactive Box */
+        .garden-interact {
+            background: linear-gradient(135deg, #68995b 0%, #94c3e9 100%);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .garden-interact button {
+            background-color: var(--accent-sprout);
+            color: var(--text-main);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: opacity 0.2s;
+        }
+
+        .garden-interact button:hover {
+            opacity: 0.9;
+        }
+
+        #garden-bed {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            min-height: 40px;
+        }
+
+        footer {
+            margin-top: 8rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        /* Responsive fixes */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            body { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🌱 garden<span>.io</span></div>
+        <nav>
+            <a href="#projects">Projects</a>
+            <a href="#garden">Garden</a>
+            <a href="mailto:adamarisrodriguez465@gmail.com">Email</a>
+            <a href="http://github.com/adamax-bones" target="_blank">Github</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Hello, I'm Adamaris and this is my <span>Digital Garden</span>.</h1>
+            <p>Welcome to my personal corner of the internet. Here I show my projects alongside my love for art, bugs, and other things.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                
+                <a href="#" class="card">
+                    <div class="status-tag growing">● Growing</div>
+                    <h3>Crawly Collection</h3>
+                    <p>An experimental website of hand-drawn insects where users can go to learn all about bugs.</p>
+                </a>
+
+                <a href="#" class="card">
+                    <div class="status-tag growing">● Growing</div>
+                    <h3>TinyFootprint</h3>
+                    <p>A carbon footprint waste tracking app that helps users visualize their environmental impact.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <section id="garden">
+            <h2>🌿 The Digital Garden</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Unlike a traditional blog, a digital garden is a collection of evolving thoughts and unfinished ideas.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="status-tag seed">🌱 Seedling</div>
+                    <h3>Weather App</h3>
+                    <p>A simple weather application that can be displayed as a widget. Features include</p>
+                </div>
+
+                <div class="card">
+                    <div class="status-tag none"></div>
+                    <h3>NA</h3>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="garden-interact">
+                <h3>Interact with the Garden</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Drop a seed into my digital garden bed to watch a plant grow instantly!</p>
+                <button onclick="plantSeed()">Plant a Seed</button>
+                <div id="garden-bed"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 • Cultivated with love using VS Code</p>
+    </footer>
+
+    <script>
+        const plants = ['🌱', '🌿', '☘️', '🍀', '🌻', '🌸', '🌲'];
+        function plantSeed() {
+            const bed = document.getElementById('garden-bed');
+            if(bed.children.length >= 15) {
+                bed.innerHTML = ''; //Reset if there are too many
+            }
+            
+            const newPlant = document.createElement('span');
+            newPlant.innerText = '🌱';
+            bed.appendChild(newPlant);
+
+            // Simulate growth after 1 second
+            setTimeout(() => {
+                const randomPlant = plants[Math.floor(Math.random() * plants.length)];
+                newPlant.innerText = randomPlant;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
