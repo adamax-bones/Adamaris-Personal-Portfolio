@@ -55,83 +55,9 @@
 
         footer { margin-top: 8rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--accent-green); padding-top: 2rem; font-family: 'Quicksand', sans-serif; }
         @media (max-width: 600px) { .hero h1 { font-size: 2.2rem; } body { padding: 1rem; } }
-    </style>
-</head>
-<body>
 
-    <header>
-        <a href="main.html" class="logo" style="text-decoration: none; color: inherit;">🌱 website<span>.com</span></a>
-        <nav>
-            <a href="projects.html">Projects</a>
-            <a href="garden.html">Garden</a>
-            <a href="doodles.html">Doodles</a>
-            <a href="#" id="contact-menu-trigger" onclick="toggleContactPanel(event)">Contact</a>
-            <a href="http://github.com/adamax-bones" target="_blank">Github</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h1>Hi there, I'm Adamaris 🐞 and this is my <br><span>Digital Garden</span>.</h1>
-            <p>Welcome to my personal corner of the internet. Here I show my projects alongside my love for art, bugs, and other things.</p>
-        </section>
-
-        <div class="garden-interact">
-            <h3>Interact with the Garden</h3>
-            <p>Drop a seed into my digital garden bed to watch a plant grow instantly!</p>
-            <button onclick="plantSeed()">Plant a Seed</button>
-            <div id="garden-bed"></div>
-        </div>
-    </main>
-
-    <footer>
-        <p>© 2026 • Cultivated with love using VS Code</p>
-    </footer>
-
-    <script>
-        const plants = ['🌱', '🌿', '☘️', '🍀', '🌻', '🌸', '🌲', '🌵'];
-        function plantSeed() {
-            const bed = document.getElementById('garden-bed');
-            if(bed.children.length >= 15) { bed.innerHTML = ''; }
-            const newPlant = document.createElement('span');
-            newPlant.innerText = '🌱';
-            bed.appendChild(newPlant);
-            setTimeout(() => {
-                const randomPlant = plants[Math.floor(Math.random() * plants.length)];
-                newPlant.innerText = randomPlant;
-            }, 1000);
-        }
-    </script>
-    <!-- Slide out panel -->
-    <div id="contact-slide-panel" class="slide-panel">
-        <button class="close-btn" onclick="toggleContactPanel(event)">×</button>
-        
-        <h2>Say Hi!</h2>
-        <p class="panel-subtitle">Some Contact Info!</p>
-        
-        <div class="contact-links">
-            <div class="contact-item">
-                <span>School Email</span>
-                <span>adamaris.rodriguez@vanderbilt.edu</span>
-            </div>
-            
-            <div class="contact-item">
-                <span>Personal Email</span>
-                <span>adamarisrodriguez465@gmail.com</span>
-            </div>
-            
-            <div class="contact-item">
-                <span>Network</span>
-                <a href="https://www.linkedin.com/in/adamaris-rodriguez-468179289/" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Overlay blur effect -->
-    <div id="panel-overlay" class="panel-overlay" onclick="toggleContactPanel(event)"></div>
-
-    <style>
-        .side-panel {
+        /* Fixed side panel */
+        .slide-panel {
             position: fixed;
             top: 0;
             right: -350px;
@@ -147,7 +73,7 @@
             border-left: 4px solid rgba(112, 196, 143, 0.559);
         }
 
-        .side-panel.open {
+        .slide-panel.open {
             right: 0;
         }
 
@@ -164,7 +90,7 @@
             line-height: 1;
         }
 
-        .side-panel h2 {
+        .slide-panel h2 {
             font-size: 1.6rem;
             color: #000000;
             margin-bottom: 0.5rem;
@@ -227,5 +153,88 @@
             pointer-events: auto;
         }
     </style>
+</head>
+<body>
+
+    <header>
+        <a href="main.html" class="logo" style="text-decoration: none; color: inherit;">🌱 website<span>.com</span></a>
+        <nav>
+            <a href="projects.html">Projects</a>
+            <a href="garden.html">Garden</a>
+            <a href="doodles.html">Doodles</a>
+            <a href="#" id="contact-menu-trigger" onclick="toggleContactPanel(event)">Contact</a>
+            <a href="http://github.com/adamax-bones" target="_blank">Github</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Hi there, I'm Adamaris 🐞 and this is my <br><span>Digital Garden</span>.</h1>
+            <p>Welcome to my personal corner of the internet. Here I show my projects alongside my love for art, bugs, and other things.</p>
+        </section>
+
+        <div class="garden-interact">
+            <h3>Interact with the Garden</h3>
+            <p>Drop a seed into my digital garden bed to watch a plant grow instantly!</p>
+            <button onclick="plantSeed()">Plant a Seed</button>
+            <div id="garden-bed"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 • Cultivated with love using VS Code</p>
+    </footer>
+
+    <!-- Slide out panel elements -->
+    <div id="contact-side-panel" class="slide-panel">
+        <button class="close-btn" onclick="toggleContactPanel(event)">×</button>
+        
+        <h2>Say Hi!</h2>
+        <p class="panel-subtitle">Some Contact Info!</p>
+        
+        <div class="contact-links">
+            <div class="contact-item">
+                <span>School Email</span>
+                <a href="mailto:adamaris.rodriguez@vanderbilt.edu">adamaris.rodriguez@vanderbilt.edu</a>
+            </div>
+            
+            <div class="contact-item">
+                <span>Personal Email</span>
+                <a href="mailto:adamarisrodriguez465@gmail.com">adamarisrodriguez465@gmail.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <span>Network</span>
+                <a href="https://www.linkedin.com/in/adamaris-rodriguez-468179289/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blur effect -->
+    <div id="panel-overlay" class="panel-overlay" onclick="toggleContactPanel(event)"></div>
+
+    <script>
+        const plants = ['🌱', '🌿', '☘️', '🍀', '🌻', '🌸', '🌲', '🌵'];
+        function plantSeed() {
+            const bed = document.getElementById('garden-bed');
+            if(bed.children.length >= 15) { bed.innerHTML = ''; }
+            const newPlant = document.createElement('span');
+            newPlant.innerText = '🌱';
+            bed.appendChild(newPlant);
+            setTimeout(() => {
+                const randomPlant = plants[Math.floor(Math.random() * plants.length)];
+                newPlant.innerText = randomPlant;
+            }, 1000);
+        }
+
+        function toggleContactPanel(event) {
+            event.preventDefault();
+            const panel = document.getElementById('contact-side-panel');
+            const overlay = document.getElementById('panel-overlay');
+            
+            panel.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
